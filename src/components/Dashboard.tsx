@@ -50,8 +50,7 @@ const Dashboard: React.FC = () => {
       // Get completed assessments (students with marks)
       const { data: marksData } = await supabase
         .from('marks')
-        .select('student_id')
-        .distinct();
+        .select('student_id', { distinct: true });
 
       // Calculate average percentage
       const { data: allMarks } = await supabase
